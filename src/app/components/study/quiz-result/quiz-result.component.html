@@ -1,0 +1,36 @@
+<br /><br />
+<div class="form-container form-container--large">
+    <h3>Quiz Results</h3>
+    <hr />
+    <br />
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-success d-flex justify-content-between align-items-center">
+            Correct Answers
+            <span class="badge bg-primary rounded-pill">{{ correctAnswers }}</span>
+        </li>
+        <li class="list-group-item list-group-item-primary d-flex justify-content-between align-items-center">
+            Total Questions
+            <span class="badge bg-primary rounded-pill">{{ totalQuestions }}</span>
+        </li>
+    </ul>
+    <br />
+    <div class="accordion" id="accordionQuizResults">
+        <div *ngFor="let result of questionResults; let i = index" class="accordion-item">
+            <h2 class="accordion-header" [id]="'heading' + i">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse' + i" aria-expanded="false" [attr.aria-controls]="'collapse' + i">Question {{ i + 1 }} of {{ totalQuestions }}</button>
+            </h2>
+            <div [id]="'collapse' + i" class="accordion-collapse collapse" aria-labelledby="'heading' + i" data-bs-parent="#accordionQuizResults">
+                <div class="accordion-body">
+                    <strong>Question</strong>
+                    <p>{{ result.questionText }}</p>
+                    <strong>Answer Explanation</strong>
+                    <p>{{ result.answerText }}</p>
+                    <p [ngClass]="{ 'text-success': result.isCorrect, 'text-danger': !result.isCorrect }">
+                        Selected Option: {{ result.selectedOptionText }} - <strong>{{ result.isCorrect ? "Correct" : "Incorrect" }}</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />

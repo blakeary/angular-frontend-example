@@ -1,0 +1,21 @@
+<br /><br />
+<div class="form-container">
+    <h3>Change Email</h3>
+    <hr />
+    <div *ngIf="successMessage" class="test-success">
+        <strong>{{ successMessage }}</strong>
+    </div>
+    <div *ngIf="errorMessage" class="text-danger">
+        <strong>{{ errorMessage }}</strong>
+    </div>
+    <br />
+    <form [formGroup]="emailChangeForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-3">
+            <label for="newEmail">New Email</label>
+            <input formControlName="newEmail" type="email" class="form-control" id="newEmail" name="newEmail" required />
+        </div>
+        <p class="text-info">You will receive a link to confirm your new email address.</p>
+        <button type="submit" class="btn btn-primary">Change Email</button>
+    </form>
+</div>
+<br />

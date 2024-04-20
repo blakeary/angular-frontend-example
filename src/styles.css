@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #e8f0fe;
+}
+
+a {
+    cursor: pointer;
+}
+
+/* Navbar */
+.navbar-brand img {
+    max-height: 40px;
+    width: auto;
+}
+
+/* Cards */
+.card-container {
+    cursor: pointer;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.card {
+    margin: 10px 10px 10px 0;
+    max-width: 20rem;
+    min-height: 250px;
+}
+
+/* Forms */
+.form-container {
+    background-color: #ffffff;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.form-container--large {
+    max-width: 750px;
+}
+
+.form-container--large textarea {
+    height: 200px;
+}
+
+/* Tables */
+.table-row {
+    cursor: pointer;
+}
+
+/* Profile */
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}

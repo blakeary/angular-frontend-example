@@ -1,0 +1,30 @@
+<br /><br />
+<div *ngIf="userDetails; else loading">
+    <h3>Profile</h3>
+    <p>
+        <strong>Profile Picture:</strong>
+        <img [src]="userDetails.profile_picture" alt="Profile Picture" class="profile-picture" />
+        <button (click)="onFileSelect()">Change Picture</button>
+    </p>
+    <p>
+        <strong>Username:</strong> {{ userDetails.username }}
+        <a (click)="navigateToUsernameChange()" class="btn-link">Change</a>
+    </p>
+    <p>
+        <strong>Email:</strong> {{ userDetails.email }}
+        <a (click)="navigateToEmailChange()" class="btn-link">Change</a>
+    </p>
+    <p><strong>First Name:</strong> {{ userDetails.first_name }}</p>
+    <p><strong>Last Name:</strong> {{ userDetails.last_name }}</p>
+    <p><strong>Active:</strong> {{ userDetails.is_active ? "Yes" : "No" }}</p>
+    <p><strong>Last Login:</strong> {{ userDetails.last_login | date }}</p>
+    <p><strong>Date Joined:</strong> {{ userDetails.date_joined | date }}</p>
+    <p><strong>Groups:</strong> {{ userDetails.groups.join(", ") }}</p>
+</div>
+
+<input type="file" #fileInput hidden (change)="uploadFile($event)" />
+
+<ng-template #loading>
+    <p>Loading user details...</p>
+</ng-template>
+<br />

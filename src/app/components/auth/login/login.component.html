@@ -1,0 +1,27 @@
+<br /><br />
+<div class="form-container">
+    <h3>Login</h3>
+    <hr />
+    <div *ngIf="successMessage" class="text-success">
+        <strong>{{ successMessage }}</strong>
+    </div>
+    <div *ngIf="errorMessage" class="text-danger">
+        <strong>{{ errorMessage }}</strong>
+    </div>
+    <br />
+    <form [formGroup]="loginForm" (submit)="onSubmit()">
+        <div class="form-group mb-3">
+            <label for="username">Username</label>
+            <input formControlName="username" type="text" class="form-control" id="username" name="username" required />
+        </div>
+        <br />
+        <div class="form-group mb-3">
+            <label for="password">Password</label>
+            <input formControlName="password" type="password" class="form-control" id="password" name="password" required />
+        </div>
+        <br />
+        <button type="submit" class="btn btn-success form-control"><fa-icon [icon]="faKey"></fa-icon>&nbsp; Login</button>
+    </form>
+    <p class="mt-3">Forgot password? <a routerLink="/forgot-password">Click here</a></p>
+</div>
+<br />

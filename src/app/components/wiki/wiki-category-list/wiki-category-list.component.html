@@ -1,0 +1,13 @@
+<br />
+<div class="card-container d-flex justify-content-center">
+    <div *ngFor="let category of categories" (click)="navigateToCategory(category.slug)">
+        <div class="card border-primary mb-3">
+            <div class="card-header">{{ category.name }}</div>
+            <div class="card-body">
+                <h4 class="card-title">{{ category.title }}</h4>
+                <p class="card-text">{{ category.description | truncate : 100 }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<br />

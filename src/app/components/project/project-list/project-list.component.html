@@ -1,0 +1,7 @@
+<br /><br />
+<h3>Projects</h3>
+<div *ngFor="let project of projects">
+    {{ project.name }}
+    <a [routerLink]="['/project', project.id]">View Details</a>
+</div>
+<br />

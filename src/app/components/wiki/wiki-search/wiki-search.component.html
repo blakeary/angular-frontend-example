@@ -1,0 +1,31 @@
+<div *ngIf="!isLoading">
+    <br />
+    <!-- Category Results -->
+    <div *ngIf="searchResults.categories.length > 0; else noCategoryResults" class="card-container d-flex justify-content-center">
+        <div *ngFor="let category of searchResults.categories" class="card border-primary mb-3" (click)="navigateToCategory(category.slug)">
+            <div class="card-header">{{ category.name }}</div>
+            <div class="card-body">
+                <h4 class="card-title">{{ category.title }}</h4>
+                <p class="card-text">{{ category.description | truncate : 100 }}</p>
+            </div>
+        </div>
+    </div>
+    <ng-template #noCategoryResults><p>No categories found.</p></ng-template>
+    <br />
+    <!-- Page Results -->
+    <div *ngIf="searchResults.pages.length > 0; else noPageResults" class="accordion" id="searchAccordion">
+        <div *ngFor="let page of searchResults.pages; let i = index" class="accordion-item">
+            <h2 class="accordion-header" [id]="'searchHeading' + i">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#searchCollapse' + i" aria-expanded="false" [attr.aria-controls]="'searchCollapse' + i">
+                    {{ page.title }}
+                </button>
+            </h2>
+            <div [id]="'searchCollapse' + i" class="accordion-collapse collapse" aria-labelledby="'searchHeading' + i" data-bs-parent="#searchAccordion">
+                <a [routerLink]="['/page', page.slug]" class="btn btn-link">Full Page</a>
+                <div markdown class="accordion-body">{{ page.content }}</div>
+            </div>
+        </div>
+    </div>
+    <ng-template #noPageResults><p>No pages found.</p></ng-template>
+</div>
+<br />

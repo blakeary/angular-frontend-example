@@ -1,0 +1,31 @@
+<br /><br />
+<div *ngIf="project">
+    <h3>{{ project.name }}</h3>
+    <p>{{ project.description }}</p>
+
+    <h4>Deliverables</h4>
+    <ul>
+        <li *ngFor="let deliverable of project.deliverables">
+            <strong>{{ deliverable.name }}:</strong> {{ deliverable.description }}
+
+            <h5>Work Packages</h5>
+            <ul>
+                <li *ngFor="let workPackage of deliverable.work_packages">
+                    <strong>{{ workPackage.name }}:</strong> {{ workPackage.description }}
+
+                    <h6>Activities</h6>
+                    <ul>
+                        <li *ngFor="let activity of workPackage.activities">
+                            <strong>{{ activity.title }}:</strong>
+                            <p>{{ activity.description }}</p>
+                            <p>Status: {{ activity.status }}</p>
+                            <p>Start Date: {{ activity.start_date | date }}</p>
+                            <p>Due Date: {{ activity.due_date | date }}</p>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<br />

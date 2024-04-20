@@ -1,0 +1,12 @@
+<br /><br />
+<div *ngIf="page">
+    <button *ngIf="isUserEditor()" type="button" class="btn btn-primary" (click)="navigateToUpdatePage(page.slug)">Update Page</button>
+    &nbsp;
+    <button *ngIf="isUserEditor()" type="button" class="btn btn-danger" (click)="navigateToDeletePage(page.slug)">Delete Page</button>
+    <br *ngIf="authService.isLoggedIn()" />
+    <br *ngIf="authService.isLoggedIn()" />
+    <h3>{{ page.title }}</h3>
+    <br />
+    <div markdown>{{ page.content }}</div>
+</div>
+<br />

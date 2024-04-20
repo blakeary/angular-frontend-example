@@ -1,0 +1,26 @@
+<br /><br />
+<div class="form-container form-container--large" *ngIf="currentQuestion">
+    <h3>Quiz (Question {{ currentQuestionNumber }} of {{ totalQuestions }})</h3>
+    <p>{{ currentQuestion.question_text }}</p>
+    <fieldset class="form-group">
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-secondary" *ngFor="let option of currentQuestion?.options">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="optionsRadios" [id]="'optionsRadios' + option.id" [value]="option.id" [(ngModel)]="selectedOptionId" (change)="selectOption(option.id)" />
+                    <label class="form-check-label" [for]="'optionsRadios' + option.id">
+                        {{ option.option_text }}
+                    </label>
+                </div>
+            </li>
+        </ul>
+    </fieldset>
+    <br />
+    <button class="btn btn-secondary" (click)="previousQuestion()" [disabled]="currentIndex === 0">Previous</button>
+    &nbsp;
+    <button class="btn btn-secondary" (click)="nextQuestion()">Next</button>
+    &nbsp;
+    <button class="btn btn-success" (click)="saveResponse()">Save</button>
+    <br /><br />
+    <button class="btn btn-primary" (click)="submitQuiz()" [disabled]="!allQuestionsAnswered()">Submit Quiz</button>
+</div>
+<br />
